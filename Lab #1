@@ -1,0 +1,52 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main() {
+	setlocale(0,"Russian");
+    int M, N;
+
+    
+    cout << "Ââåäèòå ðàçìåð ìàññèâà A: ";
+    cin >> M;
+    cout << "Ââåäèòå ðàçìåð ìàññèâà B: ";
+    cin >> N;
+
+    
+    int A[M];
+    int B[N];
+
+    
+    cout << "Ââåäèòå ýëåìåíòû ìàññèâà A:" <<endl;
+    for (int i = 0; i < M; i++) {
+        cin >> A[i];
+    }
+
+   
+    cout << "Ââåäèòå ýëåìåíòû ìàññèâà B:" <<endl;
+    for (int i = 0; i < N; i++) {
+        cin >> B[i];
+    }
+
+    
+    sort(A, A + M);
+    sort(B, B + N);
+
+   
+    int common[M + N]; 
+
+    
+    int* end_common = set_intersection(A, A + M, B, B + N, common);
+
+    
+    int common_size = end_common - common;
+
+    
+    cout << "Îáùèå ýëåìåíòû ìàññèâîâ A è B áåç ïîâòîðåíèé:" <<endl;
+    for (int i = 0; i < common_size; i++) {
+       cout << common[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
