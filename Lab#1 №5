@@ -1,0 +1,62 @@
+#include <iostream>
+using namespace std;
+
+
+void insertElements(int*& arr, int& size, int index, const int* elementsToInsert, int numElements) {
+    // Проверяем корректность индекса
+    if (index < 0 || index > size) {
+        cerr << "Ошибка: Некорректный индекс для вставки." << endl;
+        return;
+    }
+
+    // Создаем новый временный массив, который будет больше исходного массива
+    int newSize = size + numElements;
+    int* newArray = new int[newSize];
+
+    // Копируем элементы 
+    for (int i = 0; i < index; i++) {
+        newArray[i] = arr[i];
+    }
+
+    // Копируем элементы, которые нужно вставить, в новый массив
+    for (int i = 0; i < numElements; i++) {
+        newArray[index + i] = elementsToInsert[i];
+    }
+
+    // Копируем элементы из исходного массива после индекса в новый массив
+    for (int i = index; i < size; i++) {
+        newArray[index + numElements + i] = arr[i];
+    }
+
+    
+    delete[] arr;
+
+    // Обновляем указатель и размер массива
+    arr = newArray;
+    size = newSize;
+}
+
+int main() {
+    setlocale(0,"Russian");
+    int size = 0;
+    int* arr = nullptr;
+
+    
+    int elementsToInsert[] = {10, 20, 30};
+    int numElementsToInsert = sizeof(elementsToInsert) / sizeof(elementsToInsert[0]);
+    int insertIndex = 2; // Индекс, с которого начинается вставка
+
+    insertElements(arr, size, insertIndex, elementsToInsert, numElementsToInsert);
+
+    // Вывод элементов массива после вставки
+   cout << "Массив после вставки блока элементов: ";
+    for (int i = 0; i < size; i++) {
+        cout << arr[i] << " ";
+    }
+   cout << endl;
+
+   
+    delete[] arr;
+
+    return 0;
+}
