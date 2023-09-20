@@ -44,7 +44,7 @@ int main() {
     
     int S[] = {10, 20, 30};
     int numS = sizeof(S) / sizeof(S[0]);
-    int IndexS = 2; // Индекс, с которого начинается вставка
+    int IndexS = 2;
 
     insertElements(arr, size, IndexS, S, numS);
 
