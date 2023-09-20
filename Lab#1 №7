@@ -68,9 +68,5 @@ int main() {
     }
     cout <<endl;
 
-
-    delete[] arr;
-    delete[] result;
-
     return 0;
 }
