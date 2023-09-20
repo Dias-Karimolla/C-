@@ -5,7 +5,7 @@ using namespace std;
 void insertElements(int*& arr, int& size, int index, const int* S, int numS) {
     // Проверяем корректность индекса
     if (index < 0 || index > size) {
-        cerr << "Ошибка: Некорректный индекс для вставки." << endl;
+        cerr << "Ошибка" << endl;
         return;
     }
 
