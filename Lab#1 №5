@@ -9,21 +9,21 @@ void insertElements(int*& arr, int& size, int index, const int* elementsToInsert
         return;
     }
 
-    // Создаем новый временный массив, который будет больше исходного массива
+    //временный массив
     int newSize = size + numElements;
     int* newArray = new int[newSize];
 
-    // Копируем элементы 
+    // Копируем
     for (int i = 0; i < index; i++) {
         newArray[i] = arr[i];
     }
 
-    // Копируем элементы, которые нужно вставить, в новый массив
+    //вставить, в новый массив
     for (int i = 0; i < numElements; i++) {
         newArray[index + i] = elementsToInsert[i];
     }
 
-    // Копируем элементы из исходного массива после индекса в новый массив
+    //элементы из исходного массива после индекса в новый массив
     for (int i = index; i < size; i++) {
         newArray[index + numElements + i] = arr[i];
     }
@@ -31,7 +31,7 @@ void insertElements(int*& arr, int& size, int index, const int* elementsToInsert
     
     delete[] arr;
 
-    // Обновляем указатель и размер массива
+
     arr = newArray;
     size = newSize;
 }
@@ -42,11 +42,11 @@ int main() {
     int* arr = nullptr;
 
     
-    int elementsToInsert[] = {10, 20, 30};
-    int numElementsToInsert = sizeof(elementsToInsert) / sizeof(elementsToInsert[0]);
-    int insertIndex = 2; // Индекс, с которого начинается вставка
+    int S[] = {10, 20, 30};
+    int numS = sizeof(S) / sizeof(S[0]);
+    int IndexS = 2; // Индекс, с которого начинается вставка
 
-    insertElements(arr, size, insertIndex, elementsToInsert, numElementsToInsert);
+    insertElements(arr, size, IndexS, S, numS);
 
     // Вывод элементов массива после вставки
    cout << "Массив после вставки блока элементов: ";
