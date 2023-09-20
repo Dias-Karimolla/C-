@@ -33,18 +33,18 @@ int main() {
     sort(B, B + N);
 
    
-    int common[M + N]; 
+    int F[M + N]; 
 
     
-    int* C = set_intersection(A, A + M, B, B + N, common);
+    int* C = set_intersection(A, A + M, B, B + N, F);
 
     
-    int common_size = C - common;
+    int D = C - F;
 
     
     cout << "Общие элементы массивов A и B без повторений:" <<endl;
-    for (int i = 0; i < common_size; i++) {
-       cout << common[i] << " ";
+    for (int i = 0; i < D; i++) {
+       cout << F[i] << " ";
     }
     cout << endl;
 
