@@ -32,27 +32,27 @@ int main() {
 
     // Поиск
     for (int i = 0; i < M; i++) {
-        bool isCommon = false;
+        bool a = false;
         for (int j = 0; j < N; j++) {
             if (A[i] == B[j]) {
-                isCommon = true;
+                a = true;
                 break;
             }
         }
-        if (!isCommon) {
+        if (!a) {
             C[k++] = A[i];
         }
     }
 
     for (int i = 0; i < N; i++) {
-        bool isCommon = false;
+        bool a = false;
         for (int j = 0; j < M; j++) {
             if (B[i] == A[j]) {
-                isCommon = true;
+                a = true;
                 break;
             }
         }
-        if (!isCommon) {
+        if (!a) {
             C[k++] = B[i];
         }
     }
