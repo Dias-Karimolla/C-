@@ -36,10 +36,10 @@ int main() {
     int common[M + N]; 
 
     
-    int* end_common = set_intersection(A, A + M, B, B + N, common);
+    int* C = set_intersection(A, A + M, B, B + N, common);
 
     
-    int common_size = end_common - common;
+    int common_size = C - common;
 
     
     cout << "Общие элементы массивов A и B без повторений:" <<endl;
