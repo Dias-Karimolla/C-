@@ -8,21 +8,21 @@ void insertElements(int*& arr, int& size, int index, const int* S, int numS) {
         return;
     }
 
-    // Временный массив
+    
     int newSize = size + numS;
     int* newArray = new int[newSize];
 
-    // Копируем элементы до индекса
+    
     for (int i = 0; i < index; i++) {
         newArray[i] = arr[i];
     }
 
-    // Вставляем элементы из S
+
     for (int i = 0; i < numS; i++) {
         newArray[index + i] = S[i];
     }
 
-    // Копируем элементы из исходного массива после индекса
+    
     for (int i = index; i < size; i++) {
         newArray[index + numS + i] = arr[i];
     }
